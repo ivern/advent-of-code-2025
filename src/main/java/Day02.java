@@ -7,7 +7,7 @@ public class Day02 extends Day {
 
     @Override
     protected Long partOne(List<String> input) {
-        String[] parts = input.get(0).split(",");
+        String[] parts = input.getFirst().split(",");
         long result = 0;
 
         for (String part : parts) {
@@ -45,7 +45,7 @@ public class Day02 extends Day {
 
     @Override
     protected Long partTwo(List<String> input) {
-        String[] parts = input.get(0).split(",");
+        String[] parts = input.getFirst().split(",");
         long result = 0;
 
         for (String part : parts) {
@@ -56,7 +56,6 @@ public class Day02 extends Day {
             for (long i = start; i <= end; i++) {
                 if (isInvalid2(i)) {
                     result += i;
-                    System.out.println(part + " " + i);
                 }
             }
         }
