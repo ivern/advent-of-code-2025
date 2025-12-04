@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -118,6 +119,21 @@ public class DenseGrid<T> {
         }
 
         return null;
+    }
+
+    public List<Coordinate> findAll(Predicate<Coordinate> predicate) {
+        List<Coordinate> coordinates = new ArrayList<>();
+
+        for (int row = 0; row < numRows; ++row) {
+            for (int col = 0; col < numCols; ++col) {
+                Coordinate c = new Coordinate(row, col);
+                if (predicate.test(c)) {
+                    coordinates.add(c);
+                }
+            }
+        }
+
+        return coordinates;
     }
 
     public DenseGrid<T> transpose() {
